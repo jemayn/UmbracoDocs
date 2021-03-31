@@ -135,6 +135,8 @@ The example below shows how to create a new file (in this case, an image) from a
 ```
 
 :::note
+If you can't find the right overload for `media.SetValue` you need to add `@using Umbraco.Core` as the overload used here is in `Umbraco.Core.ContentExtensions`.
+
 When creating a new media from a file (eg. of the types **Image** or **File**), you must specify an instance of `IContentTypeBaseServiceProvider` (here accessed via `Services.ContentTypeBaseServices`) when setting the property value with the file reference.
 
 Umbraco uses this instance to determine the type of the media you're creating, as well as handling a few things "under the hood" so you don't have to. For instance Umbraco will automatically set other properties related to the file - such as file size and image dimensions.
@@ -163,5 +165,9 @@ using (Stream stream = File.OpenRead("C:/path/to/my-image.jpg"))
 
 }
 ```
+
+:::note
+If you can't find the right overload for `media.SetValue` you need to add `@using Umbraco.Core` as the overload used here is in `Umbraco.Core.ContentExtensions`.
+:::
 
 Again Umbraco will make sure the necessary properties are updated.
