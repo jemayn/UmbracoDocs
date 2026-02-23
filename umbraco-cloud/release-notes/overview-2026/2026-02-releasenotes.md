@@ -3,6 +3,7 @@
 ## Key Takeaways
 
 * **Opt out of automatic patch upgrades** - Allows project admins to opt out of automatic patch upgrades so you can now fully control when your project upgrades.
+* **Disable parallel builds** - Disable parallel builds for Umbraco 9+ sites to prevent resource contention.
 
 ## Opt out of automatic patch upgrades
 
@@ -13,3 +14,11 @@ If you have talked to support to have them set up something that ignores your pr
 {% endhint %}
 
 ![UI for selecting which upgrades you want to automatically apply](../../.gitbook/assets/automatic-upgrades.png)
+
+## Disable parallel builds
+
+For Umbraco 9+ sites only!
+
+When deploying to Umbraco Cloud, the build step of a deployment could previously utilize all available resources on the underlying infrastructure. This had the side effect that the deployments could end up experiencing resource contention, causing it to complete slowly or fail entirely.
+
+We have now disabled parallel builds, ensuring that a single deployment can no longer consume all available resources. This reduces issues caused by the "noisy neighbor" effect and improves overall deployment reliability.
